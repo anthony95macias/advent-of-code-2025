@@ -5,17 +5,46 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "setup-day": "tsx scripts/setup-day.ts",
     "day1": "tsx aoc-1/index.ts",
-    "main": "tsx index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "day2": "tsx aoc-2/index.ts",
+    "day3": "tsx aoc-3/index.ts",
+    "day4": "tsx aoc-4/index.ts",
+    "day5": "tsx aoc-5/index.ts",
+    "day6": "tsx aoc-6/index.ts",
+    "day7": "tsx aoc-7/index.ts",
+    "day8": "tsx aoc-8/index.ts",
+    "day9": "tsx aoc-9/index.ts",
+    "day10": "tsx aoc-10/index.ts",
+    "day11": "tsx aoc-11/index.ts",
+    "day12": "tsx aoc-12/index.ts",
+    "day13": "tsx aoc-13/index.ts",
+    "day14": "tsx aoc-14/index.ts",
+    "day15": "tsx aoc-15/index.ts",
+    "day16": "tsx aoc-16/index.ts",
+    "day17": "tsx aoc-17/index.ts",
+    "day18": "tsx aoc-18/index.ts",
+    "day19": "tsx aoc-19/index.ts",
+    "day20": "tsx aoc-20/index.ts",
+    "day21": "tsx aoc-21/index.ts",
+    "day22": "tsx aoc-22/index.ts",
+    "day23": "tsx aoc-23/index.ts",
+    "day24": "tsx aoc-24/index.ts",
+    "day25": "tsx aoc-25/index.ts",
+    "dev": "tsx watch aoc-$npm_config_day/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.24.0",
   "devDependencies": {
+    "@types/cheerio": "^1.0.0",
     "@types/node": "^24.10.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3"
   }
 }
