@@ -26,7 +26,8 @@ function partOne(rotations: string[]) {
             password += 1;
         }
     });
-    // console.log(password)
+    console.log(password);
+    return password;
 }
 
 function modulus(value: number, divisor: number) {
@@ -68,12 +69,20 @@ function partTwo(rotations: string[]) {
         }
     });
     console.log(password);
+    return password;
 }
 
 const sampleData = await fs.readFile("aoc-1/sample-input.txt", "utf-8");
-console.log("Sample data:");
-partTwo(sampleData.split("\n"));
-
 const inputData = await fs.readFile("aoc-1/input.txt", "utf-8");
-console.log("\nInput data:");
+
+console.log("Part 1:");
+console.log("Sample input:");
+partOne(sampleData.split("\n"));
+console.log("Input:");
+partOne(inputData.split("\n"));
+
+console.log("\nPart 2:");
+console.log("Sample input:");
+partTwo(sampleData.split("\n"));
+console.log("Input:");
 partTwo(inputData.split("\n"));
