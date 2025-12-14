@@ -95,6 +95,27 @@ pnpm day2   # Run day 2
 pnpm day25  # Run day 25
 ```
 
+### Submit Your Answer
+
+Once you have your answer, submit it directly to Advent of Code:
+
+```bash
+pnpm submit <day> <answer>
+```
+
+**Examples:**
+```bash
+pnpm submit 1 984        # Submit answer for day 1, part 1
+pnpm submit 1 1234 --part2  # Submit answer for day 1, part 2
+```
+
+**Response Types:**
+
+- ✅ **Correct** - Your answer is right! Move to the next part
+- ❌ **Wrong** - Try again (may include hint if too high/low)
+- ⏳ **Too soon** - Wait before submitting again
+- ℹ️ **Already complete** - You've already solved this part
+
 ### Development Mode (Watch)
 
 ```bash
@@ -152,6 +173,7 @@ console.log("Part 2:", partTwo(lines));
 |---------|-------------|
 | `pnpm setup-day <N>` | Initialize day N with problem + inputs |
 | `pnpm day<N>` | Run solution for day N |
+| `pnpm submit <N> <answer>` | Submit answer to Advent of Code |
 | `pnpm dev --day=<N>` | Run day N in watch mode |
 
 ## 🔒 Privacy

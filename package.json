@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "setup-day": "tsx scripts/setup-day.ts",
+    "submit": "tsx scripts/submit-answer.ts",
     "day1": "tsx aoc-1/index.ts",
     "day2": "tsx aoc-2/index.ts",
     "day3": "tsx aoc-3/index.ts",
