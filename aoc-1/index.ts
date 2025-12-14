@@ -19,16 +19,50 @@ function partOne(rotations: string[]) {
             change = TOTAL + change;
         }
         current = change % TOTAL;
-        console.log({change, current, value})
+        // console.log({change, current, value})
 
 
         if (current === 0) {
             password += 1;
         }
     });
-    console.log(password)
+    // console.log(password)
 }
 
-const lines = await fs.readFile("aoc-1/input.txt", "utf-8")
+function modulus(value: number, divisor: number) {
+    return value - (divisor * Math.floor(value /divisor))
+}
 
-partOne(lines.split("\n"));
+function partTwo(rotations: string[]) {
+    let password = 0;
+    let current = START;
+    // console.log(rotations);
+    rotations.forEach((rotations) => {
+        const dir = rotations[0];
+        let value = Number(rotations.slice(1));
+        if (dir == "L") {
+            // Moving left - count how many times we pass through 0
+            const divisions = Math.floor((current + value) / TOTAL);
+            password += divisions;
+
+            // Update current position going left
+            current = (current - value % TOTAL + TOTAL) % TOTAL;
+        } else {
+            // Moving right - count how many times we pass through 0
+            const divisions = Math.floor((current + value) / TOTAL);
+            password += divisions;
+
+            // Update current position going right
+            current = (current + value) % TOTAL;
+        }
+    });
+    console.log(password);
+}
+
+const sampleData = await fs.readFile("aoc-1/sample-input.txt", "utf-8");
+console.log("Sample data:");
+partTwo(sampleData.split("\n"));
+
+const inputData = await fs.readFile("aoc-1/input.txt", "utf-8");
+console.log("\nInput data:");
+partTwo(inputData.split("\n"));
