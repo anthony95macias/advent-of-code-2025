@@ -36,24 +36,35 @@ function modulus(value: number, divisor: number) {
 function partTwo(rotations: string[]) {
     let password = 0;
     let current = START;
-    // console.log(rotations);
-    rotations.forEach((rotations) => {
-        const dir = rotations[0];
-        let value = Number(rotations.slice(1));
+
+    rotations.forEach((rotation) => {
+        if (!rotation) return;
+
+        const dir = rotation[0];
+        let value = Number(rotation.slice(1));
+
         if (dir == "L") {
-            // Moving left - count how many times we pass through 0
-            const divisions = Math.floor((current + value) / TOTAL);
-            password += divisions;
-
-            // Update current position going left
-            current = (current - value % TOTAL + TOTAL) % TOTAL;
+            // Moving left - simulate each click
+            for (let i = 0; i < value; i++) {
+                current--;
+                if (current < 0) {
+                    current = TOTAL - 1;
+                }
+                if (current === 0) {
+                    password++;
+                }
+            }
         } else {
-            // Moving right - count how many times we pass through 0
-            const divisions = Math.floor((current + value) / TOTAL);
-            password += divisions;
-
-            // Update current position going right
-            current = (current + value) % TOTAL;
+            // Moving right - simulate each click
+            for (let i = 0; i < value; i++) {
+                current++;
+                if (current >= TOTAL) {
+                    current = 0;
+                }
+                if (current === 0) {
+                    password++;
+                }
+            }
         }
     });
     console.log(password);
