@@ -8,7 +8,9 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025) written in
 advent-of-code-2025-ts/
 ├── scripts/
 │   ├── scraper.ts       # Fetches problems and inputs from AoC
-│   └── setup-day.ts     # CLI to initialize a new day
+│   ├── setup-day.ts     # CLI to initialize a new day
+│   ├── update-day.ts    # CLI to update day with Part 2
+│   └── submit-answer.ts # CLI to submit answers
 ├── templates/
 │   └── index.ts         # Template for daily solutions
 ├── aoc-1/
@@ -116,6 +118,21 @@ pnpm submit 1 1234 --part2  # Submit answer for day 1, part 2
 - ⏳ **Too soon** - Wait before submitting again
 - ℹ️ **Already complete** - You've already solved this part
 
+### Update Day with Part 2
+
+After completing Part 1, fetch Part 2 of the puzzle:
+
+```bash
+pnpm update-day <day>
+```
+
+**Example:**
+```bash
+pnpm update-day 1  # Updates aoc-1/README.md with Part 2
+```
+
+This will refresh the README.md with the latest content from Advent of Code, including Part 2 if it's been unlocked.
+
 ### Development Mode (Watch)
 
 ```bash
@@ -172,6 +189,7 @@ console.log("Part 2:", partTwo(lines));
 | Command | Description |
 |---------|-------------|
 | `pnpm setup-day <N>` | Initialize day N with problem + inputs |
+| `pnpm update-day <N>` | Update day N README with Part 2 |
 | `pnpm day<N>` | Run solution for day N |
 | `pnpm submit <N> <answer>` | Submit answer to Advent of Code |
 | `pnpm dev --day=<N>` | Run day N in watch mode |

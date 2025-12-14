@@ -156,21 +156,27 @@ export async function generateReadme(
 ${description}`;
 }
 
-export async function saveDay(day: number, data: DayData, baseDir: string) {
+export async function saveDay(day: number, data: DayData, baseDir: string, updateOnly: boolean = false) {
   const dayDir = path.join(baseDir, `aoc-${day}`);
 
-  // Create day directory
-  await fs.mkdir(dayDir, { recursive: true });
+  if (!updateOnly) {
+    // Create day directory
+    await fs.mkdir(dayDir, { recursive: true });
+  }
 
   // Generate and save README
   const readme = await generateReadme(day, data.title, data.description);
   await fs.writeFile(path.join(dayDir, "README.md"), readme);
 
-  // Save input
-  await fs.writeFile(path.join(dayDir, "input.txt"), data.input);
+  if (!updateOnly) {
+    // Save input
+    await fs.writeFile(path.join(dayDir, "input.txt"), data.input);
 
-  // Create empty sample-input.txt
-  await fs.writeFile(path.join(dayDir, "sample-input.txt"), "");
+    // Create empty sample-input.txt
+    await fs.writeFile(path.join(dayDir, "sample-input.txt"), "");
 
-  console.log(`✅ Created README.md, input.txt, and sample-input.txt`);
+    console.log(`✅ Created README.md, input.txt, and sample-input.txt`);
+  } else {
+    console.log(`✅ Updated README.md with Part 2`);
+  }
 }
